@@ -117,11 +117,14 @@ class Panel extends JPanel implements ActionListener, MouseListener,
 		}
 
 		g.setColor(Color.red);
-		g.fillRect(0, 0, 10, sY);
-		g.fillRect(sX - 10, 0, 10, sY);
+		g.fillRect(sX/2 - 655, 10, 600, 10);
+		g.fillRect(sX/2 + 55, 10, 600, 10);
 		g.setColor(Color.green);
-		g.fillRect(0, 0, 10, (int) (lobster2.getHealth() / 150 * sY));
-		g.fillRect(sX - 10, 0, 10, (int) (lobster.getHealth() / 150 * sY));
+		g.fillRect(sX/2 - (int) (lobster2.getHealth() *4) - 55, 10, (int) (lobster2.getHealth() *4), 10);
+		g.fillRect(sX/2 + 55, 10, (int) (lobster2.getHealth() *4), 10);
+
+		
+		
 	}
 
 	@Override
