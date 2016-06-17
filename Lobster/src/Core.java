@@ -91,7 +91,7 @@ class Panel extends JPanel implements ActionListener, MouseListener, MouseMotion
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		sea = new ImageIcon("Sea.png").getImage();
+		sea = new ImageIcon("Sea.jpg").getImage();
 		g.drawImage(sea, 0, 0, sX, sY, null);
 		lobster.drawLobster(g, x1, y1);
 		lobster2.drawLobster(g, x2, y2);
