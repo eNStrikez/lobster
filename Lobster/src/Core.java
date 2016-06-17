@@ -20,8 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-class Panel extends JPanel implements ActionListener, MouseListener,
-		MouseMotionListener, KeyListener {
+class Panel extends JPanel implements ActionListener, MouseListener, MouseMotionListener, KeyListener {
 
 	private Timer timer;
 	private Timer breathTimer;
@@ -69,17 +68,17 @@ class Panel extends JPanel implements ActionListener, MouseListener,
 	public void eat() {
 		for (int x = 0; x < prawns.size(); x++) {
 			if (lobster.alive == true) {
-				if (x1 > prawns.get(x).posX - (lobster.sizeX / 2)
-						&& x1 < prawns.get(x).posX + (lobster.sizeX / 2)
+				if (x1 > prawns.get(x).posX - (lobster.sizeX / 2) && x1 < prawns.get(x).posX + (lobster.sizeX / 2)
 						&& y1 > prawns.get(x).posY - (lobster.sizeY / 2)
 						&& y1 < prawns.get(x).posY + (lobster.sizeY / 2)) {
 					prawns.remove(x);
 					lobster.grow();
 				}
 			}
+		}
+		for (int x = 0; x < prawns.size(); x++) {
 			if (lobster2.alive == true) {
-				if (x2 > prawns.get(x).posX - (lobster2.sizeX / 2)
-						&& x2 < prawns.get(x).posX + (lobster2.sizeX / 2)
+				if (x2 > prawns.get(x).posX - (lobster2.sizeX / 2) && x2 < prawns.get(x).posX + (lobster2.sizeX / 2)
 						&& y2 > prawns.get(x).posY - (lobster2.sizeY / 2)
 						&& y2 < prawns.get(x).posY + (lobster2.sizeY / 2)) {
 					prawns.remove(x);
@@ -117,14 +116,12 @@ class Panel extends JPanel implements ActionListener, MouseListener,
 		}
 
 		g.setColor(Color.red);
-		g.fillRect(sX/2 - 655, 10, 600, 10);
-		g.fillRect(sX/2 + 55, 10, 600, 10);
+		g.fillRect(sX / 2 - 655, 10, 600, 10);
+		g.fillRect(sX / 2 + 55, 10, 600, 10);
 		g.setColor(Color.green);
-		g.fillRect(sX/2 - (int) (lobster2.getHealth() *4) - 55, 10, (int) (lobster2.getHealth() *4), 10);
-		g.fillRect(sX/2 + 55, 10, (int) (lobster2.getHealth() *4), 10);
+		g.fillRect(sX / 2 - (int) (lobster2.getHealth() * 4) - 55, 10, (int) (lobster2.getHealth() * 4), 10);
+		g.fillRect(sX / 2 + 55, 10, (int) (lobster2.getHealth() * 4), 10);
 
-		
-		
 	}
 
 	@Override
@@ -284,8 +281,7 @@ public class Core extends JFrame {
 	public Core() {
 		int sY = Toolkit.getDefaultToolkit().getScreenSize().height;
 		int sX = Toolkit.getDefaultToolkit().getScreenSize().width;
-		setCursor(this.getToolkit().createCustomCursor(
-				new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB),
+		setCursor(this.getToolkit().createCustomCursor(new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB),
 				new Point(0, 0), ""));
 		Panel panel = new Panel(sX, sY);
 		setTitle("LOBSTER");
