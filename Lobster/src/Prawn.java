@@ -1,7 +1,5 @@
-import java.awt.Graphics;
-import java.awt.Image;
-
-import javax.swing.ImageIcon;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 
 public class Prawn {
 	private Image cursor;
@@ -10,14 +8,14 @@ public class Prawn {
 	int size;
 
 	public Prawn(int x, int y) {
-		cursor = new ImageIcon("prawn.png").getImage();
+		cursor = new Image(getClass().getResourceAsStream("prawn.png"));
 		posX = x;
 		posY = y;
 		size = (int)(Math.random()*20 + 15);
 	}
 
-	public void drawPrawn(Graphics g) {
-		g.drawImage(cursor, posX - 10, posY - 10, size, size, null);
+	public void drawPrawn(GraphicsContext g) {
+		g.drawImage(cursor, posX - 10, posY - 10, size, size);
 	}
 
 	public void move() {

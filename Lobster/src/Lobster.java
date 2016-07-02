@@ -1,7 +1,5 @@
-import java.awt.Graphics;
-import java.awt.Image;
-
-import javax.swing.ImageIcon;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 
 public class Lobster {
 	private Image cursor;
@@ -11,13 +9,12 @@ public class Lobster {
 	double health = 150;
 
 	public Lobster(String fileName) {
-		cursor = new ImageIcon(fileName + ".png").getImage();
+		cursor = new Image(getClass().getResourceAsStream(fileName + ".png"));
 	}
 
-	public void drawLobster(Graphics g, int x, int y) {
+	public void drawLobster(GraphicsContext g, int x, int y) {
 		if(alive == true){
-			g.drawImage(cursor, x - (sizeX / 2), y - (sizeY / 2), sizeX, sizeY,
-				null);
+			g.drawImage(cursor, x - (sizeX / 2), y - (sizeY / 2), sizeX, sizeY);
 		}
 	}
 
@@ -47,7 +44,7 @@ public class Lobster {
 	}
 
 	public int getSizeY() {
-		return sizeY;	
+		return sizeY;
 	}
 
 }

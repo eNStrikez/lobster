@@ -1,22 +1,22 @@
-import java.awt.Color;
-import java.awt.Graphics;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 
 public class Bubble {
 
 	int posX;
 	int posY;
 	int rand = (int)(Math.random()*50);
-	
+
 	public Bubble(int x, int y) {
 		posX = x;
 		posY = y;
 	}
 
-	public void draw(Graphics g) {
-		g.setColor(new Color(150,150,255,100));
+	public void draw(GraphicsContext g) {
+		g.setFill(Color.BLACK);
 		g.fillOval(posX, posY, rand, rand);
-		g.setColor(new Color(0,0,0,100));
-		g.drawOval(posX, posY, rand, rand);
+		g.setFill(Color.web("0,0,0", 100));
+		g.fillOval(posX, posY, rand, rand);
 	}
 
 	public void moveX() {
@@ -32,7 +32,7 @@ public class Bubble {
 			break;
 		}
 	}
-	
+
 	public void moveY(){
 		posY -= 1;
 	}
